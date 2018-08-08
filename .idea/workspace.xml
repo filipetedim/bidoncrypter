@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67086dd0-f7f9-49e8-a5ce-ff63da8b8503" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/filipetedim.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PageWrapper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/Home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bidoncrypter/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bidoncrypter/polyfill.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Home.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,14 +31,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Home.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Home.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/Home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+            <state relative-caret-position="380">
+              <caret line="53" column="19" lean-forward="true" selection-start-line="43" selection-start-column="4" selection-end-line="53" selection-end-column="19" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/bidoncrypter/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="polyfill.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bidoncrypter/polyfill.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -72,6 +87,8 @@
         <option value="$PROJECT_DIR$/src/components/PageWrapper.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/containers/Home.js" />
+        <option value="$PROJECT_DIR$/src/bidoncrypter/polyfill.js" />
+        <option value="$PROJECT_DIR$/src/bidoncrypter/index.js" />
       </list>
     </option>
   </component>
@@ -95,7 +112,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -115,6 +132,12 @@
               <item name="bidoncrypter" type="b2602c69:ProjectViewProjectNode" />
               <item name="bidoncrypter" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bidoncrypter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bidoncrypter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bidoncrypter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bidoncrypter" type="b2602c69:ProjectViewProjectNode" />
@@ -174,15 +197,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533656765128</updated>
-      <workItem from="1533656766566" duration="5217000" />
+      <workItem from="1533656766566" duration="11873000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5217000" />
+    <option name="totallyTimeSpent" value="11873000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
@@ -255,13 +278,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/nan/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/prettier/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="32752" column="4" selection-start-line="32752" selection-start-column="4" selection-end-line="32752" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/Home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+        <state relative-caret-position="380">
+          <caret line="53" column="19" lean-forward="true" selection-start-line="43" selection-start-column="4" selection-end-line="53" selection-end-column="19" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bidoncrypter/polyfill.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bidoncrypter/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>

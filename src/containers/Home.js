@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Input, Row, Col } from 'reactstrap';
+import Bidoncrypter from '../bidoncrypter';
 
 // Components
 import PageWrapper from '../components/PageWrapper';
@@ -112,7 +113,7 @@ class Home extends Component {
       return result + this.keys[keyIndexes.line][keyIndexes.key];
     }, '');
 
-    this.setState({ encrypted });
+    this.setState({ encrypted: Bidoncrypter.encrypt(string) });
   };
 
   render() {
@@ -127,7 +128,10 @@ class Home extends Component {
           placeholder="Please insert text to encrypt"
         />
         <Row className="text-left mt-3">
-          <Col>Encrypted bidonese: {this.state.encrypted}</Col>
+          <Col xs={12} className="font-weight-bold">
+            Encrypted bidonese:
+          </Col>
+          <Col>{this.state.encrypted}</Col>
         </Row>
       </PageWrapper>
     );
