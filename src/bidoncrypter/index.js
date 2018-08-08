@@ -6,6 +6,9 @@ const keys = [
   ['<', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '-'],
 ];
 
+/**
+ * Settings
+ */
 const settings = {
   hands: {
     left: { min: 0, max: 4 },
@@ -16,20 +19,23 @@ const settings = {
 };
 
 /**
- * Calculates the hand paddings. (Below are absolute values)
- * Right + Left = padding
- * 2 + 0 = 2    CHECK
- * 2 + 1 = 3    FAIL
- * 2 + 2 = 4    FAIL
- * 1 + 0 = 1    CHECK
- * 1 + 1 = 2    CHECK
- * 1 + 2 = 3    FAIL
- * 0 + 0 = 0    CHECK
- * 0 + 1 = 0    CHECK
- * 0 + 2 = 2    CHECK
- *
+ * Calculates the hand paddings.
+ * The numbers below are to be read in their absolute values.
+ *  _____________________
+ * | R + L = Padding     |
+ * |---------------------|
+ * | -2 + 0 = 2    CHECK |
+ * | -2 + 1 = 3    FAIL  |
+ * | -2 + 2 = 4    FAIL  |
+ * | -1 + 0 = 1    CHECK |
+ * | -1 + 1 = 2    CHECK |
+ * | -1 + 2 = 3    FAIL  |
+ * |  0 + 0 = 0    CHECK |
+ * |  0 + 1 = 0    CHECK |
+ * |  0 + 2 = 2    CHECK |
+ *  ---------------------
  */
-const calculateHandPaddings = (left, right) => {
+const calculateHandPaddingsBalance = (left, right) => {
   // Limit values
   left = left < 0 ? 0 : left > 2 ? 2 : left;
   right =
@@ -67,17 +73,36 @@ const getKeyIndexes = (keys, key) => {
  * Encrypts the string using the module settings.
  */
 const encrypt = (string, opts) => {
-  if (!opts) {
-    // TODO clone global opts
-  }
+  // Assigns from opts or fetched from settings
+  const leftPadding = opts.leftPadding || settings.leftPadding;
+  const rightPadding = opts.rightPadding || settings.rightPadding;
 
-  const paddings = calculateHandPaddings(settings.leftPadding, settings.rightPadding);
+  // Get correct maximum paddings
+  const paddings = calculateHandPaddingsBalance(leftPadding, rightPadding);
 
   const encrypted = [...string].reduce((result, key) => {
     const keyIndexes = getKeyIndexes(keys, key);
+
+    // If no known key, return the same
+    if (!keyIndexes) {
+      return result + key;
+    }
+
+    // Left hand
+    if (keyIndexes.key <= settings.hands.left.max) {
+      keyIndexes.key = keyIndexes.key + paddings.left;
+    }
+    // Right hand
+    else {
+      const rightPaddedIndex = keyIndexes.key + paddings.right;
+      keyIndexes.key =
+        rightPaddedIndex > settings.hands.right.max ? settings.hands.right.max : rightPaddedIndex;
+    }
+
+    return result + keys[keyIndexes.line][keyIndexes.key];
   }, '');
 
-  return string;
+  return encrypted;
 };
 
 const set = () => 'bye';
