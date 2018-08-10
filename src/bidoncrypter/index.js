@@ -19,6 +19,18 @@ const settings = {
 };
 
 /**
+ * Validates the settings and throw errors if anything is broken.
+ */
+const validateSettings = ({ leftPadding, rightPadding }) => {
+  if (isNaN(leftPadding)) {
+    throw new Error('Left padding must be a number');
+  }
+  if (isNaN(rightPadding)) {
+    throw new Error('Right padding must be a number');
+  }
+};
+
+/**
  * Calculates the hand paddings.
  * The numbers below are to be read in their absolute values.
  *  _____________________
@@ -73,14 +85,16 @@ const getKeyIndexes = (keys, key) => {
  * Encrypts the string using the module settings.
  */
 const encrypt = (string, opts) => {
-  // Assigns from opts or fetched from settings
+  validateSettings(opts);
+
+  // Assigns from opts or defaults to settings
   const leftPadding = opts.leftPadding || settings.leftPadding;
   const rightPadding = opts.rightPadding || settings.rightPadding;
 
   // Get correct maximum paddings
   const paddings = calculateHandPaddingsBalance(leftPadding, rightPadding);
 
-  const encrypted = [...string].reduce((result, key) => {
+  return [...string].reduce((result, key) => {
     const keyIndexes = getKeyIndexes(keys, key);
 
     // If no known key, return the same
@@ -101,10 +115,19 @@ const encrypt = (string, opts) => {
 
     return result + keys[keyIndexes.line][keyIndexes.key];
   }, '');
-
-  return encrypted;
 };
 
-const set = () => 'bye';
+/**
+ * Sets the global settings.
+ * Only the params are allowed settings, and default to the current settings.
+ * @param leftPadding
+ * @param rightPadding
+ */
+const set = ({ leftPadding = settings.leftPadding, rightPadding = settings.rightPadding }) => {
+  validateSettings({ leftPadding, rightPadding });
+
+  settings.leftPadding = leftPadding;
+  settings.rightPadding = rightPadding;
+};
 
 module.exports = { set, encrypt };
